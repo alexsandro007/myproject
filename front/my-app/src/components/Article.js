@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Article() {   
- //let { id } = useParams();
- const id = 1;
+
+ let { id } = useParams();
+
  const [data, setData] = useState([]);
-  console.log(id);
+ console.log(id);
+
  useEffect(() => {
      axios.get( `http://localhost:3000/posts/${id}`)
      .then((response) => {
@@ -19,8 +21,10 @@ function Article() {
  <div>
    
      <h1>
+       <p className="title">{data.title}</p>
+       <div className="bac-info">
        <p className="information">{data.information}</p>
-      
+       </div>
      </h1>
    </div>
  );

@@ -7,7 +7,8 @@ import './App.css';
 
 function App() {
   return (
-  <div className="container">
+  <div>
+   <div className="container">
 
     <header className="header">
       <nav>
@@ -34,7 +35,7 @@ function App() {
     </Switch>
     </BrowserRouter>
     </main>
-
+  </div> 
     <footer className="footer-distributed">
 
       <div className="footer-left">
@@ -88,7 +89,7 @@ function App() {
         </div>
         
     </footer>
-
+   
   </div>
   );
 }

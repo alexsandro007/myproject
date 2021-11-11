@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import {Col,Card, CardGroup} from 'react-bootstrap'
-import { post } from "request";
 
 function News() {
   const [data, setData] = useState([]);
