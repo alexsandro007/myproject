@@ -1,24 +1,27 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import News from "./components/News";
 import Article from "./components/Article";
+import Category from "./components/Category";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
+  
   return (
+  <BrowserRouter>
   <div>
    <div className="container">
-
     <header className="header">
       <nav>
         <div className="wrapper">
           <div className="logo2"><a href="http://localhost:3001/"><img src="https://ic.wampi.ru/2021/11/05/logo.png"></img></a></div>
-          <ul className="snip1250">
+          <ul className="menu">
             <li className="current"><a className="a" href="http://localhost:3001/" data-hover="Home">Home</a></li>
-            <li><a className="a" href="football" data-hover="FOOTBALL">FOOTBALL</a></li>
-            <li><a className="a" href="nba" data-hover="NBA">NBA</a></li>
-            <li><a className="a" href="nhl" data-hover="NHL">NHL</a></li>
+            <li><Link  className="a" to='/football' data-hover="FOOTBALL">FOOTBALL</Link></li>
+            <li><Link  className="a" to='/nba' data-hover="NBA">NBA</Link></li>
+            <li><Link  className="a" to='/nhl' data-hover="NHL">NHL</Link></li>
+
             <li>
               <a className="a" href="allsports" data-hover="ALL SPORTS">ALL SPORTS</a>
               </ li>
@@ -28,14 +31,17 @@ function App() {
     </header>
 
     <main className="main">
-    <BrowserRouter>
+    
     <Switch>
+        <Route component={Category} path="/football" exact/>         
+        <Route component={Category} path="/nba" exact/>   
+        <Route component={Category} path="/nhl" exact/>   
         <Route component={News} path="/" exact />
         <Route  path="/post/:id" children={ <Article/>} />
     </Switch>
-    </BrowserRouter>
+   
     </main>
-  </div> 
+   </div> 
     <footer className="footer-distributed">
 
       <div className="footer-left">
@@ -91,6 +97,7 @@ function App() {
     </footer>
    
   </div>
+  </BrowserRouter>
   );
 }
 export default App;

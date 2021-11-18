@@ -18,16 +18,22 @@ function Article() {
        })
  },[id]);
  return (
- <div>
+  <div>
    
      <h1>
+      <img src={data.photo}></img>
        <p className="title">{data.title}</p>
        <div className="bac-info">
        <p className="information">{data.information}</p>
        </div>
      </h1>
-   </div>
+
+  </div>
  );
 }
 
 export default Article
+
+// git add .
+// git commit -m "dfgdg"
+// git push -u origin main 

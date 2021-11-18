@@ -4,17 +4,17 @@ import {Link} from "react-router-dom";
 import {Col,Card, CardGroup} from 'react-bootstrap';
 import moment from 'moment';
 
-function News() {
+function Category(props) {
   const [data, setData] = useState([]);
-
+  const tag = props.location.pathname.slice(1)
   useEffect(() => {
-      axios.get( `http://localhost:3000/posts`)
+      axios.get( `http://localhost:3000/category/${tag}`)
       .then((response) => {
           setData(response.data);
         }).catch(function(error){
             console.log(error)
         })
-  });
+  }, [tag]);
   return (
     <CardGroup className="news">
       {data.map(p=>
@@ -36,4 +36,4 @@ function News() {
 
 }
 
-export default News
+export default Category

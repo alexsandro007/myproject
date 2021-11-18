@@ -25,6 +25,22 @@ app.get('/posts/:id', (req, res)=>{
     }
 })
 
+app.get('/category/:tag', (req, res)=>{
+
+    const tag = req.params.tag;
+    if(tag){
+        db.all('select * from posts where tag=?', tag, (error, post)=>{
+            if(error){
+                return res.status(404).send(error)
+            }
+            console.log(post)
+            return res.json(post)
+        })
+    } else {
+        return res.status(404).send('Post not found')
+    }
+})
+
 app.get('/posts', (req, res)=>{
     const sql = `select * from posts`
     db.all(sql, (error, posts)=>{
